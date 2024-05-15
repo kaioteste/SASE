@@ -4,7 +4,7 @@
         
     @endif 
     
-    <table class="table-fixed text-white w-full">
+    <table class="table-fixed text-white w-full mx-">
         <thead class="border-b">
             <tr>
                 <th>
@@ -39,7 +39,7 @@
                         <a class=" border rounded-md" href="{{route('servicos.edit',['servico' => $servicos->id])}}">
                             edit
                         </a>
-                        <a  class=" border rounded-md" href="{{route('servicos.show',[$servicos->id])}}">Show</a>
+                        <a  class=" border rounded-md " href="{{route('servicos.show',[$servicos->id])}}">Show</a>
                     </td>
                 </tr>
             @endforeach

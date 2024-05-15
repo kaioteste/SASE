@@ -21,18 +21,14 @@
 
     </head>
     <body style="background-color: #272727;">
-       
-            
-            
-            
-                <main style="height: 100vh;"  class="flex justify-center items-center text-2xl">
-                    <div class="font-mono">
+        <main style="height: 100vh;"  class="flex justify-center items-center text-2xl">
+            <div class="font-mono">
                         <div class="text-center">
                             <h1 class="text-white text-4xl">
                                 Bem-Vindo(a) ao <span class="text-[#96ACC2] font-bold ">SASE</span>!
                             </h1>
-                            <p class="text-white text-xl">
-                                Explore nossos serviços
+                            <p class="text-white text-xl mt-2">
+                                Explore nossos <span class="underline decoration-[#96ACC2]">serviços</span>
                             </p>
                         </div>
                         <div class="flex justify-center">
@@ -58,9 +54,7 @@
                                         
                         
                                         @if (Route::has('register'))
-                                        <div class="text-center mb-5 text-white" >
-                                            ou
-                                        </div>
+                                        
                                         <div class=" text-xl ">
                                             <a style="text-decoration: none; " href="{{ route('login') }}" class="  flex justify-center w-full ">
                                                 <button class=" w-80 bg-[#96ACC2] hover:bg-[#CDD7E2] text-gray-900 font-bold py-2 px-4 rounded">
@@ -72,11 +66,17 @@
                                         @endif
                                     @endauth
                                 @endif
+                                <div class="text-center my-5 text-white text-xl" >
+                                    ou
+                                </div>
+                                <div class="text-xl text-center text-white">
+                                    Acesse o <span class="text-[#96ACC2]">SASE</span> para <span class="text-[#96ACC2] hover:underline"><a href="#">cliente</a></span>
+                                </div>
                             </div>
                         </div>
                         
-                    </div>
-                </main>
+            </div>
+        </main>
     </body>  
 
     <style>
