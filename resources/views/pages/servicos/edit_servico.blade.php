@@ -13,8 +13,8 @@
         @csrf
         <input type="hidden" name="_method" value="PUT" >
         <input value="{{$servico->nome}}" name="nome" type="text">
-        <input value="{{$servico->tempo}}" name="tempo" type="number">
-        <input value="{{$servico->preco}}" name="preco" type="number">
+        <input value="{{$servico->tempo}}" name="tempo" min="0" type="number">
+        <input value="{{$servico->preco}}" name="preco" min="0" type="number">
         <button type="submit" class="border text-white">atualizar</button>
     </form>
  </x-app-layout>

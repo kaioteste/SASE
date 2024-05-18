@@ -18,16 +18,21 @@
 
         <!-- Styles -->
         
-
-    </head>
+    </head> 
+    
     <body style="background-color: #272727;">
+        
         <main style="height: 100vh;"  class="flex justify-center items-center text-2xl">
-            <div class="font-mono">
-                        <div class="text-center">
+            
+            <div class="" style="font-family: 'Cinzel', serif;">
+                        <div>
                             <h1 class="text-white text-4xl">
                                 Bem-Vindo(a) ao <span class="text-[#96ACC2] font-bold ">SASE</span>!
                             </h1>
-                            <p class="text-white text-xl mt-2">
+                            <!-- <div  class="flex justify-center ">
+                                <img src="{{asset('img/sase_logo.png')}}" alt="" class="w-80 h-80" >
+                            </div> -->
+                            <p class="text-white text-center text-xl">
                                 Explore nossos <span class="underline decoration-[#96ACC2]">serviços</span>
                             </p>
                         </div>

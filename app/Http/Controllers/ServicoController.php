@@ -43,10 +43,10 @@ class ServicoController extends Controller
         ]);
 
         if($created){
-            return redirect()->back()->with('message', 'Funcionarios adicionado');
+            return redirect()->route('servicos.index')->with('message', 'Serviço adicionado');
         };
 
-        return redirect()->back()->with('message', 'erro');
+        return redirect()->route('servicos.index')->with('message', 'erro');
 
     }
 
@@ -70,7 +70,7 @@ class ServicoController extends Controller
             $update = $this->servico->where('id', $id)->update($request->except(['_token', '_method']));
             if($update){
 
-                return redirect()->back()->with('message', 'Update feito');
+                return redirect()->route('servicos.index')->with('message', 'Update feito');
                 // $servicos = $this->servico->all();
                 // return view('pages/servicos/servico', ['servico' => $servicos])->with('message', 'Update feito');
 
@@ -84,7 +84,7 @@ class ServicoController extends Controller
     {
         $id = $servico->id;
         $this->servico->where('id', $id)->delete();
-        return redirect()->route('servicos.index');
+        return redirect()->route('servicos.index')->with('message', 'serviço deletado');
     }
 }
 

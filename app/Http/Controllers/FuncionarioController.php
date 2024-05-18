@@ -46,10 +46,10 @@ class FuncionarioController extends Controller
             'user_id'=>Auth::user()->id,
         ]);
         if($created){
-            return redirect()->back()->with('message', 'serviço criado');
+            return redirect()->route('funcionarios.index')->with('message', 'serviço criado');
         };
 
-        return redirect()->back()->with('message', 'erro');
+        return redirect()->route('funcionarios.index')->with('message', 'erro');
     }
     
 
@@ -78,7 +78,7 @@ class FuncionarioController extends Controller
             $update = $this->funcionario->where('id', $id)->update($request->except(['_token', '_method']));
             if($update){
 
-                return redirect()->back()->with('message', 'Update feito');
+                return redirect()->route('funcionarios.index')->with('message', 'Update feito');
             }
     }   
 
