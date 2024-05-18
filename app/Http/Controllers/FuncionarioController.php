@@ -43,6 +43,7 @@ class FuncionarioController extends Controller
     {
         $created= $this->funcionario->create([
             'nome'=>$request->input('nome'),
+            'funcao'=>$request->input('funcao'),
             'user_id'=>Auth::user()->id,
         ]);
         if($created){

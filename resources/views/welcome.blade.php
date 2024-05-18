@@ -40,9 +40,9 @@
                             <div>
                                 @if (Route::has('login'))
                                     @auth
-                                        <div class="">
+                                        <div >
                                             <a style="text-decoration: none; " href="{{ url('/dashboard') }}">
-                                                <button class="bg-[#96ACC2] hover:bg-[#CDD7E2] text-gray-900 font-bold py-2 px-4 rounded">
+                                                <button class="bg-[#96ACC2] hover:bg-[#CDD7E2]  text-gray-900 font-bold py-2 px-4 rounded">
                                                     Dashboard
                                                 </button>
                                             </a>
