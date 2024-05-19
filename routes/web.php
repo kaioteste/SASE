@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ServicoController;
 use App\Http\Controllers\FuncionarioController;
+use App\Http\Controllers\EstabelecimentoController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -22,7 +23,7 @@ Route::get('/', function () {
 
 Route::resource('servicos', ServicoController::class)->withTrashed()->middleware(['auth', 'verified']);
 
-Route::resource('funcionarios', funcionarioController::class)->withTrashed()->middleware(['auth', 'verified']);
+Route::resource('funcionarios', FuncionarioController::class)->withTrashed()->middleware(['auth', 'verified']);
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -36,15 +37,9 @@ Route::get('/cliente', function () {
     return view('pages/cliente');
 })->middleware(['auth', 'verified'])->name('cliente');
 
-
-
 Route::get('/-', function () {
     return view('welcome');
 })->middleware(['auth', 'verified'])->name('servico');
-
-
-
-
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

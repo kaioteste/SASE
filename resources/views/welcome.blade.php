@@ -14,16 +14,16 @@
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
-        
+
 
         <!-- Styles -->
-        
-    </head> 
-    
+
+    </head>
+
     <body style="background-color: #272727;">
-        
+
         <main style="height: 100vh;"  class="flex justify-center items-center text-2xl">
-            
+
             <div class="" style="font-family: 'Cinzel', serif;">
                         <div>
                             <h1 class="text-white text-4xl">
@@ -32,7 +32,7 @@
                             <!-- <div  class="flex justify-center ">
                                 <img src="{{asset('img/sase_logo.png')}}" alt="" class="w-80 h-80" >
                             </div> -->
-                            <p class="text-white text-center text-xl">
+                            <p class="mt-2 text-white text-center text-xl">
                                 Explore nossos <span class="underline decoration-[#96ACC2]">serviços</span>
                             </p>
                         </div>
@@ -56,14 +56,14 @@
                                             </a>
                                         </div>
 
-                                        
-                        
+
+
                                         @if (Route::has('register'))
-                                        
+
                                         <div class=" text-xl ">
                                             <a style="text-decoration: none; " href="{{ route('login') }}" class="  flex justify-center w-full ">
                                                 <button class=" w-80 bg-[#96ACC2] hover:bg-[#CDD7E2] text-gray-900 font-bold py-2 px-4 rounded">
-                                                    Entre com uma conta 
+                                                    Entre com uma conta
 
                                                 </button>
                                             </a>
@@ -71,18 +71,20 @@
                                         @endif
                                     @endauth
                                 @endif
-                                <div class="text-center my-5 text-white text-xl" >
+                                <div class="text-center mt-4 mb-2 text-white text-base" >
                                     ou
                                 </div>
                                 <div class="text-xl text-center text-white">
-                                    Acesse o <span class="text-[#96ACC2]">SASE</span> para <span class="text-[#96ACC2] hover:underline"><a href="#">cliente</a></span>
+                                    <span class="text-[#96ACC2] hover:underline"><a href="#" >Entre</a></span> para cadastrar seu Estabelecimento</span>
                                 </div>
+                                <div class="text-base text-center text-white mt-1">
+                                                                    </div>
                             </div>
                         </div>
-                        
+
             </div>
         </main>
-    </body>  
+    </body>
 
     <style>
         .mudarCor{
@@ -98,4 +100,4 @@
     <script src="scripts/darkMode.js"></script>
 <script src="./scripts/main.js"></script>
 
-    
+

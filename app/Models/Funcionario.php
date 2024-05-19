@@ -17,8 +17,8 @@ class funcionario extends Model
     protected $fillable = [
         'nome',
         'user_id',
-        'funcao',
-        
+        'descricao',
+
     ];
 }
 

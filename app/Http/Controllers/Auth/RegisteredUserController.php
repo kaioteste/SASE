@@ -10,13 +10,13 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
-use App\Models\endereco;
+// use App\Models\Endereco;
 use Illuminate\View\View;
 
 class RegisteredUserController extends Controller
 {
 
-   
+
 
     /**
      * Display the registration view.
@@ -33,35 +33,23 @@ class RegisteredUserController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
-        
-
         $request->validate([
-            'name_dono' => ['required', 'string', 'max:100'],
-            'name_estabelecimento' => ['required', 'string', 'max:100'],
-            'telefone' => ['required', 'string', 'max:30'],
+            'name' => ['required', 'string', 'max:50'],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
-            'password' => ['required', 'confirmed', Rules\Password::defaults()],
+            'username' => ['required', 'string', 'max:16'],
+            'cpf' => ['required', 'string', 'max:14'],
+            'telefone' => ['required', 'string', 'max:14'],
+            'password' => ['required', 'confirmed', Rules\Password::defaults()]
         ]);
 
         $user = User::create([
-            'name_dono' => $request->name_dono,
+            'name' => $request->name,
             'email' => $request->email,
+            'username' => $request->username,
+            'cpf' => $request->cpf,
             'telefone' => $request->telefone,
-            'name_estabelecimento' => $request->name_estabelecimento,
             'password' => Hash::make($request->password),
         ]);
-
-        $endereco = new endereco();
-        $endereco->cidade = $request->input('cidade');
-        $endereco->cep = $request->input('cep');
-        $endereco->bairro = $request->input('bairro');
-        $endereco->rua = $request->input('rua');
-        $endereco->numeroEstab = $request->input('numeroEstab');
-        $endereco->complemento = $request->input('complemento');
-        $endereco->id_users = $user->id;
-        $endereco->save();
-        
-
 
         event(new Registered($user));
 

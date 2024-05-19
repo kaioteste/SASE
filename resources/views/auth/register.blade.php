@@ -2,25 +2,18 @@
     <form method="POST" action="{{ route('register') }}">
         @csrf
 
-        <!-- name_estabelecimento -->
+        <!-- Name -->
         <div>
-            <x-input-label for="name_estabelecimento" :value="__('name_estabelecimento')" />
-            <x-text-input id="name_estabelecimento" class="block mt-1 w-full" type="text" name="name_estabelecimento" :value="old('name_estabelecimento')" required autofocus autocomplete="name_estabelecimento" />
-            <x-input-error :messages="$errors->get('name_estabelecimento')" class="mt-2" />
+            <x-input-label for="name" :value="__('Name')" />
+            <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
+            <x-input-error :messages="$errors->get('name')" class="mt-2" />
         </div>
 
-        {{-- name_dono --}}
-        <div>
-            <x-input-label for="name_dono" :value="__('name_dono')" />
-            <x-text-input id="name_dono" class="block mt-1 w-full" type="text" name="name_dono" :value="old('name_dono')" required autofocus autocomplete="name_donoo" />
-            <x-input-error :messages="$errors->get('name_dono')" class="mt-2" />
-        </div>
-
-        {{-- telefone --}}
-        <div x-data>
-            <x-input-label for="telefone" :value="__('telefone')" />
-            <x-text-input id="telefone" class="block mt-1 w-full" type="text" name="telefone" :value="old('telefone')" required autofocus autocomplete="telefone"  x-mask="(99)99999-9999" placeholder="(99)99999-9999" />
-            <x-input-error :messages="$errors->get('telefone')" class="mt-2" />
+        <!-- Username -->
+        <div class="mt-4">
+            <x-input-label for="username" :value="__('Username')" />
+            <x-text-input id="username" class="block mt-1 w-full" type="text" name="username" :value="old('username')" required autofocus autocomplete="username" />
+            <x-input-error :messages="$errors->get('username')" class="mt-2" />
         </div>
 
         <!-- Email Address -->
@@ -30,58 +23,39 @@
             <x-input-error :messages="$errors->get('email')" class="mt-2" />
         </div>
 
-        <div x-data>
-            <!-- cep -->
-            <x-input-label for="cep" :value="__('cep')" />
-            <x-text-input 
-                
-                id="cep" 
-                class="block mt-1 w-full" 
-                type="text" 
-                name="cep" 
-                :value="old('cep')" 
-                required autofocus autocomplete="cep" 
-                x-mask="99999-999"
-                placeholder="99999-999"/>
+        <!-- CPF -->
+        <div x-data class="mt-4">
+            <x-input-label for="cpf" :value="__('CPF')" />
+            <x-text-input
+
+                id="cpf"
+                class="block mt-1 w-full"
+                type="text"
+                name="cpf"
+                :value="old('cpf')"
+                required autofocus autocomplete="cpf"
+                x-mask="999.999.999-99"
+                placeholder="999.999.999-99"/>
 
             <x-input-error :messages="$errors->get('cep')" class="mt-2" />
         </div>
 
+        <!-- Telefone -->
+        <div x-data class="mt-4">
+            <x-input-label for="telefone" :value="__('Telefone')" />
+            <x-text-input
 
-        <div>
-            <!-- cidade -->
-            <x-input-label for="cidade" :value="__('cidade')" />
-            <x-text-input id="cidade" class="block mt-1 w-full" type="text" name="cidade" :value="old('cidade')" required autofocus autocomplete="cidade" />
-            <x-input-error :messages="$errors->get('cidade')" class="mt-2" />
+                id="telefone"
+                class="block mt-1 w-full"
+                type="text"
+                name="telefone"
+                :value="old('telefone')"
+                required autofocus autocomplete="telefone"
+                x-mask="(99)99999-9999"
+                placeholder="(99)99999-9999"/>
+
+            <x-input-error :messages="$errors->get('telefone')" class="mt-2" />
         </div>
-
-        <div>
-            <!-- bairro -->
-            <x-input-label for="bairro" :value="__('bairro')" />
-            <x-text-input id="bairro" class="block mt-1 w-full" type="text" name="bairro" :value="old('bairro')" required autofocus autocomplete="bairro" />
-            <x-input-error :messages="$errors->get('bairro')" class="mt-2" />
-        </div>
-
-        <div>
-            <!-- rua -->
-            <x-input-label for="rua" :value="__('rua')" />
-            <x-text-input id="rua" class="block mt-1 w-full" type="text" name="rua" :value="old('rua')" required autofocus autocomplete="rua" />
-            <x-input-error :messages="$errors->get('rua')" class="mt-2" />
-        </div>
-
-        <div>
-            <!-- numeroEsbeb -->
-            <x-input-label for="numeroEstab" :value="__('numeroEstab')" />
-            <x-text-input id="numeroEstab" class="block mt-1 w-full" type="text" name="numeroEstab" :value="old('numeroEstab')" required autofocus autocomplete="numeroEstab" />
-            <x-input-error :messages="$errors->get('numeroEstab')" class="mt-2" />
-        </div>
-
-        <div>
-            <!-- complemento -->
-            <x-input-label for="complemento" :value="__('complemento')" />
-            <x-text-input id="complemento" class="block mt-1 w-full" type="text" name="complemento" :value="old('complemento')" required autofocus autocomplete="complemento" />
-            <x-input-error :messages="$errors->get('complemento')" class="mt-2" />
-        </div> 
 
         <!-- Password -->
         <div class="mt-4">
