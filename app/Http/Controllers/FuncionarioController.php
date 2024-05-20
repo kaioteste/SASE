@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\funcionario;
+use App\Models\Funcionario;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -20,12 +20,12 @@ class FuncionarioController extends Controller
      */
     public function index()
     {
-        $funcionario = $this->funcionario->all();
-        
-            
-        
-       
-        return view('pages/funcionarios/funcionario', ['funcionario' => $funcionario]);
+        $funcionarios = $this->funcionario->all();
+
+
+
+
+        return view('pages/funcionarios/funcionario', ['funcionarios' => $funcionarios]);
     }
 
     /**
@@ -52,28 +52,28 @@ class FuncionarioController extends Controller
 
         return redirect()->route('funcionarios.index')->with('message', 'erro');
     }
-    
+
 
     /**
      * Display the specified resource.
      */
-    public function show(funcionario $funcionario)
+    public function show(Funcionario $funcionario)
     {
-        return view('pages/funcionarios/show_funcionario', ['funcionario'=>$funcionario]);
+        return view('pages/funcionarios/show_funcionario', ['funcionario' => $funcionario]);
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(funcionario $funcionario)
+    public function edit(Funcionario $funcionario)
     {
-        return view('pages/funcionarios/edit_funcionario',['funcionario' =>$funcionario]);
+        return view('pages/funcionarios/edit_funcionario',['funcionario' => $funcionario]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, funcionario $funcionario)
+    public function update(Request $request, Funcionario $funcionario)
     {
         $id = $funcionario->id;
             $update = $this->funcionario->where('id', $id)->update($request->except(['_token', '_method']));
@@ -81,12 +81,12 @@ class FuncionarioController extends Controller
 
                 return redirect()->route('funcionarios.index')->with('message', 'Update feito');
             }
-    }   
+    }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(funcionario $funcionario)
+    public function destroy(Funcionario $funcionario)
     {
         $id = $funcionario->id;
         $this->funcionario->where('id', $id)->delete();

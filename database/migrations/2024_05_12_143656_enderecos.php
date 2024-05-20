@@ -14,13 +14,15 @@ return new class extends Migration
         Schema::create('enderecos', function (Blueprint $table) {
             $table->id();
             $table->string('cep');
+            $table->string('estado');
             $table->string('cidade');
             $table->string('bairro');
             $table->string('rua');
             $table->string('numeroEstab');
             $table->string('complemento')->nullable();
-            $table->unsignedBigInteger('id_users');
-            $table->foreign('id_users')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
+
+            $table->foreignId('user_id')->constraint();
+
             $table->timestamps();
         });
     }

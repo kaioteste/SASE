@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
-use App\Models\servico;
+use App\Models\Servico;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -51,19 +51,19 @@ class ServicoController extends Controller
     }
 
     // SHOW
-    public function show(servico $servico)
+    public function show(Servico $servico)
     {
         return view('pages/servicos/show_servico', ['servico'=>$servico]);
     }
 
     // EDIT
-    public function edit(servico $servico)
+    public function edit(Servico $servico)
     {
         return view('pages/servicos/edit_servico',['servico' =>$servico]);
     }
 
     // UPDATE
-    public function update(Request $request, servico $servico)
+    public function update(Request $request, Servico $servico)
     {
         {
             $id = $servico->id;
@@ -80,7 +80,7 @@ class ServicoController extends Controller
     }
 
     // DELETE
-    public function destroy(servico $servico)
+    public function destroy(Servico $servico)
     {
         $id = $servico->id;
         $this->servico->where('id', $id)->delete();

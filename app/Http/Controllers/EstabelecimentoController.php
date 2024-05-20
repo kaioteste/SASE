@@ -31,7 +31,6 @@ class RegisteredUserController extends Controller
     public function store(Request $request): RedirectResponse
     {
 
-
         $request->validate([
             'name_dono' => ['required', 'string', 'max:100'],
             'name_estabelecimento' => ['required', 'string', 'max:100'],
