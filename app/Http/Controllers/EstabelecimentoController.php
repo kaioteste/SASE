@@ -13,7 +13,7 @@ use Illuminate\Validation\Rules;
 use App\Models\Endereco;
 use Illuminate\View\View;
 
-class RegisteredUserController extends Controller
+class EstabelecimentoController extends Controller
 {
     // CREATE
     public function create(): View

@@ -7,7 +7,7 @@
 
     <div class="flex justify-center">
         <h1 class=" flex items-center p-4 mb-4 text-sm text-green-800 border border-green-300 rounded-lg bg-green-50 dark:bg-green-300 dark:text-green-800 dark:border-green-800 w-96 mt-5" role="alert">{{session()->get('message')}}</h1>
-        
+
     </div>
 
     @endif
@@ -21,7 +21,7 @@
                     </th>
 
                     <th scope="col" class="px-3 py-3">
-                        
+
                     função
                     </th>
                     <th scope="col" class="px-3 py-3">
@@ -30,20 +30,20 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($funcionario as $funcionarios)
+                @foreach ($funcionarios as $funcionario)
                 <tr class="odd:bg-white odd:dark:bg-gray-300 even:bg-gray-50  border-b dark:border-gray-700">
                     <th scope="row" class="px-3   py-4 font-medium text-gray-900 whitespace-nowrap ">
-                        {{$funcionarios->nome}}
+                        {{$funcionario->nome}}
                     </th>
                     <th scope="row" class="px-3   py-4 font-medium text-gray-900 whitespace-nowrap ">
-                        {{$funcionarios->funcao}}
+                        {{$funcionario->funcao}}
                     </th>
                     <td class="px-6 py-4">
-                        <a class="font-medium text-blue-600 dark:text-blue-500 hover:underline " href="{{route('funcionarios.edit',['funcionario' => $funcionarios->id])}}">
+                        <a class="font-medium text-blue-600 dark:text-blue-500 hover:underline " href="{{route('funcionarios.edit',['funcionario' => $funcionario->id])}}">
                             edit
                         </a>
                         |
-                        <a class="font-medium text-blue-600 dark:text-blue-500 hover:underline" href="{{route('funcionarios.show',[$funcionarios->id])}}">Show</a>
+                        <a class="font-medium text-blue-600 dark:text-blue-500 hover:underline" href="{{route('funcionarios.show',['funcionario' => $funcionario->id])}}">Show</a>
                     </td>
                 </tr>
                 @endforeach

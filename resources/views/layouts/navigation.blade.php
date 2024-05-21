@@ -20,13 +20,14 @@
             </div>
 
             <!-- Settings Dropdown -->
+
             <div class="hidden sm:flex sm:items-center sm:ms-6">
                 <!-- conteudos -->
+
                 <div class="text-gray-400 my-auto space-x-4 ">
-                    <a class="hover:text-gray-300" href="{{Route('agenda')}}">Agenda</a>
-                    <a class="hover:text-gray-300" href="{{Route('cliente')}}">Cliente</a>
-                    <a class="hover:text-gray-300" href="{{Route('funcionarios.index')}}">Funcionario</a>
-                    <a class="hover:text-gray-300" href="{{Route('servicos.index')}}">Servico</a>
+                    <a class="hover:text-gray-300" href="{{Route('estabelecimentos.index')}}">Sobre</a>
+                    <a class="hover:text-gray-300" href="{{Route('estabelecimentos.index')}}">Suporte</a>
+                    <a class="hover:text-gray-300" href="{{Route('estabelecimentos.index')}}">Estabelecimentos</a>
                 </div>
                 <x-dropdown align="right" width="48">
                     <x-slot name="trigger">
@@ -83,15 +84,13 @@
             <!-- conteudos -->
             <div class="text-white my-auto px-4 ">
                 <div class="  text-sm text-gray-100 my-3 hover:text-gray-300">
-                    <a href="{{Route('agenda')}}">Agenda</a>
                 </div>
 
                 <div class="  text-sm text-gray-100 my-3 hover:text-gray-300">
-                    <a href="{{Route('cliente')}}">Cliente</a>
                 </div>
 
                 <div class="  text-sm text-gray-100 my-3 hover:text-gray-300">
-                    <a href="{{Route('funcionarios.index')}}">Funcionario</a>
+                    <a href="{{Route('estabelecimentos.index')}}">Estabelecimetnos</a>
                 </div>
 
                 <div class="  text-sm text-gray-100 my-3 hover:text-sky-300">

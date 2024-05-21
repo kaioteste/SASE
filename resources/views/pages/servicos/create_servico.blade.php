@@ -5,7 +5,7 @@
 
         <div class="w-full max-w-sm p-4 bg-white border border-gray-200 rounded-lg shadow-lg sm:p-6 md:p-8 dark:bg-[#272727] dark:border-gray-700 m-auto">
             <div class="text-center text-gray-100 text-lg mb-3">
-                Adcione seus serviços
+                Adicione seus serviços
             </div>
             <form action="{{route('servicos.store')}}" method="POST">
                 @csrf

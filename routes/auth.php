@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
+use App\Http\Controllers\Auth\AltAuthenticatedSessionController;
 use App\Http\Controllers\Auth\ConfirmablePasswordController;
 use App\Http\Controllers\Auth\EmailVerificationNotificationController;
 use App\Http\Controllers\Auth\EmailVerificationPromptController;
@@ -16,6 +17,20 @@ Route::middleware('guest')->group(function () {
                 ->name('register');
 
     Route::post('register', [RegisteredUserController::class, 'store']);
+
+    Route::get('login', [AuthenticatedSessionController::class, 'create'])
+                ->name('login');
+    // Primary Login
+    Route::get('login', [AuthenticatedSessionController::class, 'create'])
+                ->name('login');
+
+    Route::post('login', [AuthenticatedSessionController::class, 'store']);
+
+    // Alternative Login
+    Route::get('altlogin', [AltAuthenticatedSessionController::class, 'create'])
+                ->name('altlogin');
+
+    Route::post('altlogin', [AltAuthenticatedSessionController::class, 'store']);
 
     Route::get('login', [AuthenticatedSessionController::class, 'create'])
                 ->name('login');

@@ -22,10 +22,7 @@ class FuncionarioController extends Controller
     {
         $funcionarios = $this->funcionario->all();
 
-
-
-
-        return view('pages/funcionarios/funcionario', ['funcionarios' => $funcionarios]);
+        return view('pages/funcionarios/list_funcionario', ['funcionarios' => $funcionarios]);
     }
 
     /**

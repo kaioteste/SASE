@@ -147,6 +147,7 @@
     "Administrator users can perform any action.": "O administrador pode realizar qualquer ação.",
     "Editor users have the ability to read, create, and update.": "O editor pode ler, criar e atualizar",
     "Remove": "Remover",
-    "Username": "Nome de Usuário"
+    "Username": "Nome de Usuário",
+    "Log in with username": "Entrar com o nome de usuário",
+    "Log in with email address": "Entrar com o endereço de E-mail"
 }
-

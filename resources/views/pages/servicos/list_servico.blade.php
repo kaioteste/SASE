@@ -9,7 +9,7 @@
 
     <div class="flex justify-center">
         <h1 class=" flex items-center p-4 mb-4 text-sm text-green-800 border border-green-300 rounded-lg bg-green-50 dark:bg-green-300 dark:text-green-800 dark:border-green-800 w-96 mt-5" role="alert">{{session()->get('message')}}</h1>
-        
+
     </div>
 
     @endif
@@ -34,7 +34,7 @@
         @endforeach
     </div>
 
-    <button class=" fixed bottom-5 left-5 hover:bg-[#96ACC2] text-white bg-[#272727] m-5 font-medium rounded-full text-xl text-sm w-14 h-14 text-center me-2 mb-2 ">
+    <button data-modal-target="authentication-modal" data-modal-toggle="authentication-modal" class=" fixed bottom-5 left-5 hover:bg-[#96ACC2] text-white bg-[#272727] m-5 font-medium rounded-full text-xl text-sm w-14 h-14 text-center me-2 mb-2 ">
         <a href="{{route('servicos.create')}}">
             +
         </a>
