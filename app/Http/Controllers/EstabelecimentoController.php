@@ -7,7 +7,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Http\Requests\EstabelecimentoRequest;
-use Illuminate\Database\Eloquent\Builder;
+    use Illuminate\Database\Eloquent\Builder;
 use Redirect;
 
 class EstabelecimentoController extends Controller
@@ -19,9 +19,7 @@ class EstabelecimentoController extends Controller
     public function index()
     {
         $user = Auth::user();
-        $estabelecimentos = Estabelecimento::whereHas('user', function (Builder $query) {
-            $query->where('id', '=', 'user_id');
-        });
+        $estabelecimentos = Estabelecimento::where('user_id', $user->id)->get();
 
         return view('pages.estabelecimentos.list', ['estabelecimentos' => $estabelecimentos]);
     }
