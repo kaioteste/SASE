@@ -25,12 +25,14 @@ Route::middleware('guest')->group(function () {
                 ->name('login');
 
     Route::post('login', [AuthenticatedSessionController::class, 'store']);
+    //
 
     // Alternative Login
     Route::get('altlogin', [AltAuthenticatedSessionController::class, 'create'])
                 ->name('altlogin');
 
     Route::post('altlogin', [AltAuthenticatedSessionController::class, 'store']);
+    //
 
     Route::get('login', [AuthenticatedSessionController::class, 'create'])
                 ->name('login');

@@ -27,7 +27,7 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard'); // Verificar se tem um usuário logado
 
-Route::resource('estabelecimentos', EstabelecimentoController::class)->withTrashed()->middleware(['auth']);
+Route::resource('estabelecimentos', EstabelecimentoController::class)->withTrashed()->middleware(['auth', 'verified']);
 
 // SERVICOS
 Route::resource('servicos', ServicoController::class)->withTrashed()->middleware(['auth', 'verified']);
@@ -44,4 +44,17 @@ Route::resource('funcionarios', FuncionarioController::class)->withTrashed()->mi
 // })->middleware(['auth', 'verified'])->name('cliente');
 
 require __DIR__.'/auth.php';
+
+/* Conciliar tudo isso será difícil, mas eu farei isso acontecer */
+
+/* Notas: O que eu posso fazer para terminar esse trabalho em 6 dias?
+ * 1: Planejar antecipadamente o que será feito e como será feito;
+ *  - Irá ser feito o laravel primeiro, depois me preocuparei com a estética do site;
+ *  - Tailwind terá que sair da água pro vinho, essa semana;
+ * 2: Aplicar e transcrever para código; */
+
+/* Planejamento:
+ * Todo estabelecimento irá ter um endereço, mas como ele será armazenado?
+ * Opção 1: Tabela externa: Isso irá também possibilitar a pesquisa por lugar
+ * Opção 2: Tudo junto com os dados do estabelecimento, mas isso não ficaria desorganizado? */
 

@@ -5,17 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class endereco extends Model
+class Endereco extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'cep',
         'estado',
-        'cidade',
-        'bairro',
+        'municipio',
         'rua',
-        'numeroEstab',
-        'complemento',
+        'numero',
+        'bairro',
+        'complemento'
     ];
 }

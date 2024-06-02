@@ -1,68 +1,80 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use App\Models\Estabelecimento;
-use Illuminate\Auth\Events\Registered;
-use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Validation\Rules;
-use App\Models\Endereco;
-use Illuminate\View\View;
+use Illuminate\Http\Request;
+use App\Http\Requests\EstabelecimentoRequest;
+use Illuminate\Database\Eloquent\Builder;
+use Redirect;
 
 class EstabelecimentoController extends Controller
 {
-    // CREATE
-    public function create(): View
+    /**
+     * Display a listing of the resource.
+     */
+
+    public function index()
     {
-        return view('auth.register');
+        $user = Auth::user();
+        $estabelecimentos = Estabelecimento::whereHas('user', function (Builder $query) {
+            $query->where('id', '=', 'user_id');
+        });
+
+        return view('pages.estabelecimentos.list', ['estabelecimentos' => $estabelecimentos]);
     }
 
     /**
-     * Handle an incoming registration request.
-     *
-     * @throws \Illuminate\Validation\ValidationException
+     * Show the form for creating a new resource.
      */
-
-    // STORE
-    public function store(Request $request): RedirectResponse
+    public function create()
     {
+        return view('pages.estabelecimentos.create');
+    }
 
-        $request->validate([
-            'name_dono' => ['required', 'string', 'max:100'],
-            'name_estabelecimento' => ['required', 'string', 'max:100'],
-            'telefone' => ['required', 'string', 'max:30'],
-            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
-            'password' => ['required', 'confirmed', Rules\Password::defaults()],
-        ]);
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function store(EstabelecimentoRequest $request)
+    {
+        $estabelecimento = Estabelecimento::create(
+            $request->validated()
+        );
 
-        $user = User::create([
-            'name_dono' => $request->name_dono,
-            'email' => $request->email,
-            'telefone' => $request->telefone,
-            'name_estabelecimento' => $request->name_estabelecimento,
-            'password' => Hash::make($request->password),
-        ]);
+        return Redirect::route('estabelecimentos.index');
+    }
 
-        $endereco = new endereco();
-        $endereco->cidade = $request->input('cidade');
-        $endereco->cep = $request->input('cep');
-        $endereco->bairro = $request->input('bairro');
-        $endereco->rua = $request->input('rua');
-        $endereco->numeroEstab = $request->input('numeroEstab');
-        $endereco->complemento = $request->input('complemento');
-        $endereco->id_users = $user->id;
-        $endereco->save();
+    /**
+     * Display the specified resource.
+     */
+    public function show(Estabelecimento $estabelecimento)
+    {
+        //
+    }
 
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit(Estabelecimento $estabelecimento)
+    {
+        //
+    }
 
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(Request $request, Estabelecimento $estabelecimento)
+    {
+        //
+    }
 
-        event(new Registered($user));
-
-        Auth::login($user);
-
-        return redirect(route('dashboard', absolute: false));
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy(Estabelecimento $estabelecimento)
+    {
+        //
     }
 }
