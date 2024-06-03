@@ -12,8 +12,9 @@ class Estabelecimento extends Model
     protected $fillable = [
         'name',
         'descr',
-        'telefone',
+        'phone',
         'email',
+        'endereco_id',
         'user_id',
     ];
 }

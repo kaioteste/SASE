@@ -15,11 +15,10 @@ return new class extends Migration
             $table->id();
             $table->string('name')->unique();
             $table->text('descr');
-            $table->string('telefone')->unique();
+            $table->string('phone')->unique();
             $table->string('email')->unique();
 
-            // ADICIONAR ENDEREÇO
-            /* $table->foreignId('endereco_id')->constrained(); */
+            $table->foreignId('endereco_id')->constrained()->nullable();
 
             $table->foreignId('user_id')->constrained();
 

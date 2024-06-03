@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use App\Models\Estabelecimento;
+use App\Models\Endereco;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
@@ -18,7 +19,7 @@ class EstabelecimentoRequest extends FormRequest
         return [
             'name' => ['required', 'string', 'max:80', 'unique:'.Estabelecimento::class],
             'descr' => ['required', 'string', 'max:300'],
-            'telefone' => ['required', 'string', 'max:14', 'unique:'.Estabelecimento::class],
+            'phone' => ['required', 'string', 'max:14', 'unique:'.Estabelecimento::class],
             'email' => ['required',
                         'string',
                         'lowercase',
@@ -27,12 +28,17 @@ class EstabelecimentoRequest extends FormRequest
                         'unique:'.Estabelecimento::class
             ],
             'user_id' => ['required', 'integer'],
+            'endereco_id' => ['integer'],
         ];
     }
     protected function prepareForValidation()
     {
         $this->merge([
             'user_id' => auth()->id(),
+        ]);
+
+        $this->mergeIfMissing([
+            'endereco_id' => 1,// RESOLVER ESSA GAMBIARRA AQUI
         ]);
     }
 }

@@ -3,40 +3,50 @@
 namespace App\Http\Controllers;
 
 use App\Models\Endereco;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use App\Http\Requests\EnderecoRequest;
+use Redirect;
 
 class EnderecoController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index() // TESTAR
     {
-        //
+        $user = Auth::user();
+        $enderecos = Endereco::where('user_id', $user->id)->get();
+
+        return view('pages.enderecos.list', ['enderecos', $enderecos]);
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create() // TESTAR
     {
-        //
+        return view('pages.enderecos.create');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(EnderecoRequest $request) // TESTAR
     {
-        //
+        $endereco = Endereco::create(
+            $request->validated()
+        );
+
+        return back()->withInput();
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Endereco $endereco)
+    public function show(Endereco $endereco) // TESTAR
     {
-        //
+        return view('pages.enderecos.show'); //INCOMPLETO
     }
 
     /**

@@ -30,13 +30,7 @@
                                         <span class="text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">E-mail</span>
                                     </th>
                                     <th class="px-6 py-3 bg-gray-50 text-left">
-                                        <span class="text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Adicionado por:</span>
-                                    </th>
-                                    <th class="px-6 py-3 bg-gray-50 text-left">
-                                        <a class="text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Editar</a>
-                                    </th>
-                                    <th class="px-6 py-3 bg-gray-50 text-left">
-                                        <a class="text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Deletar</a>
+                                        <a class="text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Ações</a>
                                     </th>
                                 </tr>
                             </thead>
@@ -62,20 +56,11 @@
                                             {{ $estabelecimento->email }}
                                         </td>
                                         <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-900">
-                                            {{ $estabelecimento->user_id }}
-                                        </td>
-                                        <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-900">
-                                            <a href="{{ route('estabelecimentos.edit', ['estabelecimento' => $estabelecimento->id]) }}">
-                                                <button>Editar</button>
+                                            <a href="{{ route('estabelecimentos.show', ['estabelecimento' => $estabelecimento->id]) }}">
+                                                <button>Ver Detalhes</button>
                                             </a>
                                         </td>
-                                        <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-900">
-                                            <form onSubmit="if(!confirm('Você quer mesmo deletar esse estabelecimento?')){return false;}" action="{{ route('estabelecimentos.destroy', ['estabelecimento' => $estabelecimento]) }}" method="post">
-                                                @csrf
-                                                <input type="hidden" name="_method" value="DELETE">
-                                                <button onClick="Confirm();" type="submit">Deletar</button>
-                                            </form>
-                                        </td>
+
                                     </tr>
 
                                 @endforeach

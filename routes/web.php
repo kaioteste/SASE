@@ -6,6 +6,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ServicoController;
 use App\Http\Controllers\FuncionarioController;
 use App\Http\Controllers\EstabelecimentoController;
+use App\Http\Controllers\EnderecoController;
 
 Route::get('/', function () {
     if (Auth::check())
@@ -27,7 +28,11 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard'); // Verificar se tem um usuário logado
 
+// ESTABELECIMENTOS
 Route::resource('estabelecimentos', EstabelecimentoController::class)->withTrashed()->middleware(['auth', 'verified']);
+
+// ENDERECOS
+Route::resource('enderecos', EnderecoController::class)->withTrashed()->middleware(['auth', 'verified']);
 
 // SERVICOS
 Route::resource('servicos', ServicoController::class)->withTrashed()->middleware(['auth', 'verified']);
