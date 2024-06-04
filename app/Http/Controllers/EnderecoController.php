@@ -46,7 +46,8 @@ class EnderecoController extends Controller
      */
     public function show(Endereco $endereco) // TESTAR
     {
-        return view('pages.enderecos.show'); //INCOMPLETO
+        return dd($endereco);
+        /* return view('pages.enderecos.show'); //INCOMPLETO */
     }
 
     /**

@@ -17,4 +17,8 @@ class Estabelecimento extends Model
         'endereco_id',
         'user_id',
     ];
+
+    public function endereco() {
+        return $this->belongsTo(Endereco::class);
+    }
 }

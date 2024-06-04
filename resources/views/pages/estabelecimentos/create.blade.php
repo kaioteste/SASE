@@ -1,7 +1,5 @@
 <x-app-layout>
 
-
-
     <div id="FormWrap" class="grid h-screen place-items-center">
 
         <form action="{{ route('estabelecimentos.store') }}" method="post" class="w-full max-w-sm">
@@ -54,7 +52,7 @@
                 </label>
                 </div>
                 <div class="md:w-2/3">
-                <select name="endereco" id="endereco">
+                <select name="endereco_id" id="endereco_id" class="form-control">
                     @foreach ($enderecos as $endereco)
                         <option value="{{ $endereco->id }}">{{ $endereco->name }}</option>
                     @endforeach

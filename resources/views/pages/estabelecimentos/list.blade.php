@@ -30,6 +30,9 @@
                                         <span class="text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">E-mail</span>
                                     </th>
                                     <th class="px-6 py-3 bg-gray-50 text-left">
+                                        <span class="text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Endereço</span>
+                                    </th>
+                                    <th class="px-6 py-3 bg-gray-50 text-left">
                                         <a class="text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Ações</a>
                                     </th>
                                 </tr>
@@ -38,8 +41,13 @@
                             <tbody class="bg-white divide-y divide-gray-200 divide-solid">
 
                                 @foreach($estabelecimentos as $estabelecimento)
-
-                                    <tr class="bg-white">
+                                <!-- Agora eu preciso pegar o endereco_id do estabelecimento para achar onde está o endereço que eu quero mostrar o nome -->
+                                <?php
+                                    $endereco_id = $estabelecimento->endereco_id;
+                                    $endereco = $enderecos->find($endereco_id);
+                                ?>
+                                    <tr class="bg-white
+                                    ">
                                         <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-900">
                                             {{ $estabelecimento->id }}
                                         </td>
@@ -50,10 +58,17 @@
                                             {{ $estabelecimento->descr}}
                                         </td>
                                         <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-900">
-                                            {{ $estabelecimento->telefone }}
+                                            {{ $estabelecimento->phone }}
                                         </td>
                                         <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-900">
                                             {{ $estabelecimento->email }}
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-900">
+                                            <a href="{{ route('enderecos.show', ['endereco', $endereco]) }}">
+                                                <button>
+                                                    {{ $endereco->name }}
+                                                </button>
+                                            </a>
                                         </td>
                                         <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-900">
                                             <a href="{{ route('estabelecimentos.show', ['estabelecimento' => $estabelecimento->id]) }}">

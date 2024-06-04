@@ -20,8 +20,9 @@ class EstabelecimentoController extends Controller
     {
         $user = Auth::user();
         $estabelecimentos = Estabelecimento::where('user_id', $user->id)->get();
+        $enderecos = Endereco::all();
 
-        return view('pages.estabelecimentos.list', ['estabelecimentos' => $estabelecimentos]);
+        return view('pages.estabelecimentos.list', ['estabelecimentos' => $estabelecimentos, 'enderecos' => $enderecos ]);
     }
 
     /**

@@ -58,8 +58,6 @@ require __DIR__.'/auth.php';
  *  - Tailwind terá que sair da água pro vinho, essa semana;
  * 2: Aplicar e transcrever para código; */
 
-/* Planejamento:
- * Todo estabelecimento irá ter um endereço, mas como ele será armazenado?
- * Opção 1: Tabela externa: Isso irá também possibilitar a pesquisa por lugar
- * Opção 2: Tudo junto com os dados do estabelecimento, mas isso não ficaria desorganizado? */
-
+/* Planejamento 2:
+ * Após conseguir exibir o nome do endereço,
+ * preciso agora usar o show e mostrar os dados do endereço e colocar a opção de editar e deletar; */

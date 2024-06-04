@@ -19,7 +19,7 @@ class EstabelecimentoRequest extends FormRequest
         return [
             'name' => ['required', 'string', 'max:80', 'unique:'.Estabelecimento::class],
             'descr' => ['required', 'string', 'max:300'],
-            'phone' => ['required', 'string', 'max:14', 'unique:'.Estabelecimento::class],
+            'phone' => ['required', 'string', 'max:15', 'unique:'.Estabelecimento::class],
             'email' => ['required',
                         'string',
                         'lowercase',
@@ -28,7 +28,7 @@ class EstabelecimentoRequest extends FormRequest
                         'unique:'.Estabelecimento::class
             ],
             'user_id' => ['required', 'integer'],
-            'endereco_id' => ['integer'],
+            'endereco_id' => ['required', 'integer'],
         ];
     }
     protected function prepareForValidation()
@@ -37,8 +37,5 @@ class EstabelecimentoRequest extends FormRequest
             'user_id' => auth()->id(),
         ]);
 
-        $this->mergeIfMissing([
-            'endereco_id' => 1,// RESOLVER ESSA GAMBIARRA AQUI
-        ]);
     }
 }
