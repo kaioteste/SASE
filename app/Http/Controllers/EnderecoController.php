@@ -18,13 +18,13 @@ class EnderecoController extends Controller
         $user = Auth::user();
         $enderecos = Endereco::where('user_id', $user->id)->get();
 
-        return view('pages.enderecos.list', ['enderecos', $enderecos]);
+        return view('pages.enderecos.list', ['enderecos' => $enderecos]);
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create() // TESTAR
+    public function create()
     {
         return view('pages.enderecos.create');
     }
@@ -32,13 +32,13 @@ class EnderecoController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(EnderecoRequest $request) // TESTAR
+    public function store(EnderecoRequest $request)
     {
         $endereco = Endereco::create(
             $request->validated()
         );
 
-        return back()->withInput();
+        return Redirect::back()->withErrors(['msg' => 'Deu erro!']);
     }
 
     /**

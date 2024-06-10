@@ -1,5 +1,14 @@
 <x-app-layout>
 
+    @isset($enderecos)
+        <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+            <strong class="font-bold">Adicione um endereço!</strong>
+            <span class="block sm:inline">Não há nenhum endereço cadastrado, cadastre clicando <a href="{{ route('enderecos.create') }}" class="underline" >aqui</a></span>
+            <span class="absolute top-0 bottom-0 right-0 px-4 py-3">
+            </span>
+        </div>
+    @endisset
+
     <div id="FormWrap" class="grid h-screen place-items-center">
 
         <form action="{{ route('estabelecimentos.store') }}" method="post" class="w-full max-w-sm">
@@ -65,7 +74,7 @@
                     Confirmar
                 </button>
                 <a href={{ route('estabelecimentos.index') }} >
-                    <button type="button" class="shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded">Cancelar</button>
+                        <button type="button" class="shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded">Cancelar</button>
                 </a>
                 </div>
             </div>

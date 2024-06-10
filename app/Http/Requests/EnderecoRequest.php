@@ -19,9 +19,9 @@ class EnderecoRequest extends FormRequest
             'name' => ['required', 'string', 'max:80', 'unique:'.Endereco::class],
             'state' => ['required', 'string', 'max:20'],
             'city' => ['required', 'string', 'max:20'],
-            'district' => ['required', 'string', 'max:20'],
+            'district' => ['required', 'string', 'max:50'],
             'street' => ['required', 'string', 'max:40'],
-            'number' => ['required', 'integer', 'max:999999'],
+            'number' => ['required', 'integer', 'max:999999', 'min:1'],
             'user_id' => ['required', 'integer'],
         ];
     }

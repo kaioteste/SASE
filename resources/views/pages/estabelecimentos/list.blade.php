@@ -38,47 +38,66 @@
                                 </tr>
                             </thead>
 
+                                @if (empty($estabelecimento))
+                                    <div>
+                                        <tr>
+                                            <p>
+                                                Nenhum estabelecimento foi cadastrado. Todos os estabelecimentos vinculados a essa conta serão exibidos abaixo:
+                                            </p>
+                                        </tr>
+                                    </div>
+                                @endif
+
                             <tbody class="bg-white divide-y divide-gray-200 divide-solid">
 
-                                @foreach($estabelecimentos as $estabelecimento)
-                                <!-- Agora eu preciso pegar o endereco_id do estabelecimento para achar onde está o endereço que eu quero mostrar o nome -->
-                                <?php
-                                    $endereco_id = $estabelecimento->endereco_id;
-                                    $endereco = $enderecos->find($endereco_id);
-                                ?>
-                                    <tr class="bg-white
-                                    ">
-                                        <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-900">
-                                            {{ $estabelecimento->id }}
-                                        </td>
-                                        <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-900">
-                                            {{ $estabelecimento->name }}
-                                        </td>
-                                        <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-900">
-                                            {{ $estabelecimento->descr}}
-                                        </td>
-                                        <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-900">
-                                            {{ $estabelecimento->phone }}
-                                        </td>
-                                        <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-900">
-                                            {{ $estabelecimento->email }}
-                                        </td>
-                                        <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-900">
-                                            <a href="{{ route('enderecos.show', ['endereco', $endereco]) }}">
-                                                <button>
-                                                    {{ $endereco->name }}
-                                                </button>
-                                            </a>
-                                        </td>
-                                        <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-900">
-                                            <a href="{{ route('estabelecimentos.show', ['estabelecimento' => $estabelecimento->id]) }}">
-                                                <button>Ver Detalhes</button>
-                                            </a>
-                                        </td>
 
-                                    </tr>
+                                    @foreach($estabelecimentos as $estabelecimento)
 
-                                @endforeach
+                                        <?php
+                                            $endereco_id = $estabelecimento->endereco_id;
+                                            $endereco = $enderecos->find($endereco_id);
+                                        ?>
+                                        <tr class="bg-white">
+
+                                            <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-900">
+                                                {{ $estabelecimento->id }}
+                                            </td>
+
+                                            <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-900">
+                                                {{ $estabelecimento->name }}
+                                            </td>
+
+                                            <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-900">
+                                                {{ $estabelecimento->descr}}
+                                            </td>
+
+                                            <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-900">
+                                                {{ $estabelecimento->phone }}
+                                            </td>
+
+                                            <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-900">
+                                                {{ $estabelecimento->email }}
+                                            </td>
+
+                                            <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-900">
+
+                                                <a href="{{ route('enderecos.show', ['endereco', $endereco]) }}">
+                                                    <button>
+                                                        {{ $endereco->name }}
+                                                    </button>
+                                                </a>
+
+                                            </td>
+
+                                            <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-900">
+                                                <a href="{{ route('estabelecimentos.show', ['estabelecimento' => $estabelecimento->id]) }}">
+                                                    <button>Ver Detalhes</button>
+                                                </a>
+                                            </td>
+
+                                        </tr>
+
+                                    @endforeach
 
                             </tbody>
                         </table>

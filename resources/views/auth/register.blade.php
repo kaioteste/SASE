@@ -40,21 +40,21 @@
             <x-input-error :messages="$errors->get('cep')" class="mt-2" />
         </div>
 
-        <!-- Telefone -->
+        <!-- Phone -->
         <div x-data class="mt-4">
-            <x-input-label for="telefone" :value="__('Telefone')" />
+            <x-input-label for="phone" :value="__('Phone')" />
             <x-text-input
 
-                id="telefone"
+                id="phone"
                 class="block mt-1 w-full"
                 type="text"
-                name="telefone"
-                :value="old('telefone')"
-                required autofocus autocomplete="telefone"
-                x-mask="(99)99999-9999"
-                placeholder="(99)99999-9999"/>
+                name="phone"
+                :value="old('phone')"
+                required autofocus autocomplete="phone"
+                x-mask="(99) 99999-9999"
+                placeholder="(99) 99999-9999"/>
 
-            <x-input-error :messages="$errors->get('telefone')" class="mt-2" />
+            <x-input-error :messages="$errors->get('phone')" class="mt-2" />
         </div>
 
         <!-- Password -->

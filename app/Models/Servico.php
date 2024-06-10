@@ -15,10 +15,10 @@ class servico extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'nome',
-        'preco',
-        'tempo',
+        'name',
+        'price',
+        'estabelecimento_id',
         'user_id',
-        
+
     ];
 }

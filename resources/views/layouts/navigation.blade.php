@@ -28,6 +28,7 @@
                     <a class="hover:text-gray-300" href="{{Route('estabelecimentos.index')}}">Sobre</a>
                     <a class="hover:text-gray-300" href="{{Route('estabelecimentos.index')}}">Suporte</a>
                     <a class="hover:text-gray-300" href="{{Route('estabelecimentos.index')}}">Estabelecimentos</a>
+                    <a class="hover:text-gray-300" href="{{Route('enderecos.index')}}">Meus endereços</a>
                 </div>
                 <x-dropdown align="right" width="48">
                     <x-slot name="trigger">
@@ -90,7 +91,7 @@
                 </div>
 
                 <div class="  text-sm text-gray-100 my-3 hover:text-gray-300">
-                    <a href="{{Route('estabelecimentos.index')}}">Estabelecimetnos</a>
+                    <a href="{{Route('estabelecimentos.index')}}">Estabelecimentos</a>
                 </div>
 
                 <div class="  text-sm text-gray-100 my-3 hover:text-sky-300">
