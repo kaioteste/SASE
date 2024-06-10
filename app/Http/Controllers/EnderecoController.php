@@ -37,8 +37,6 @@ class EnderecoController extends Controller
         $endereco = Endereco::create(
             $request->validated()
         );
-
-        return Redirect::back()->withErrors(['msg' => 'Deu erro!']);
     }
 
     /**

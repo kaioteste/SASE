@@ -1,13 +1,13 @@
 <x-app-layout>
 
-    @isset($enderecos)
+    @empty($enderecos)
         <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
             <strong class="font-bold">Adicione um endereço!</strong>
             <span class="block sm:inline">Não há nenhum endereço cadastrado, cadastre clicando <a href="{{ route('enderecos.create') }}" class="underline" >aqui</a></span>
             <span class="absolute top-0 bottom-0 right-0 px-4 py-3">
             </span>
         </div>
-    @endisset
+    @endempty
 
     <div id="FormWrap" class="grid h-screen place-items-center">
 
