@@ -1,13 +1,13 @@
 <x-app-layout>
 
-    @empty($enderecos)
+    @if(count($enderecos) < 1) <!-- Aparentemente o @empty não funciona -->
         <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
             <strong class="font-bold">Adicione um endereço!</strong>
             <span class="block sm:inline">Não há nenhum endereço cadastrado, cadastre clicando <a href="{{ route('enderecos.create') }}" class="underline" >aqui</a></span>
             <span class="absolute top-0 bottom-0 right-0 px-4 py-3">
             </span>
         </div>
-    @endempty
+    @endif
 
     <div id="FormWrap" class="grid h-screen place-items-center">
 
@@ -61,13 +61,13 @@
                 </label>
                 </div>
                 <div class="md:w-2/3">
-                <select name="endereco_id" id="endereco_id" class="form-control">
-                    @foreach ($enderecos as $endereco)
-                        <option value="{{ $endereco->id }}">{{ $endereco->name }}</option>
-                    @endforeach
-                </select>
-            </div>
-            <div class="md:flex md:items-center">
+                    <select name="endereco_id" id="endereco_id" class="form-control">
+                        @foreach ($enderecos as $endereco)
+                            <option value="{{ $endereco->id }}">{{ $endereco->name }}</option>
+                        @endforeach
+                    </select>
+                </div>
+                <div class="md:flex md:items-center">
                 <div class="md:w-1/3"></div>
                 <div class="md:w-2/3">
                 <button class="shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded" type="submit">
