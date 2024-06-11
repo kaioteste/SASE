@@ -12,9 +12,6 @@ use Redirect;
 
 class EstabelecimentoController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
 
     public function index()
     {
@@ -25,9 +22,6 @@ class EstabelecimentoController extends Controller
         return view('pages.estabelecimentos.list', ['estabelecimentos' => $estabelecimentos, 'enderecos' => $enderecos ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
         $user = Auth::user();
@@ -36,9 +30,6 @@ class EstabelecimentoController extends Controller
         return view('pages.estabelecimentos.create', ['enderecos' => $enderecos]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(EstabelecimentoRequest $request)
     {
         $estabelecimento = Estabelecimento::create(
@@ -48,26 +39,17 @@ class EstabelecimentoController extends Controller
         return Redirect::route('estabelecimentos.index');
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(Estabelecimento $estabelecimento)
     {
         return view('pages.estabelecimentos.show', ['estabelecimento' => $estabelecimento]);
         /* return dd($estabelecimento->id); */
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(Estabelecimento $estabelecimento)
     {
         return view('pages.estabelecimentos.edit', ['estabelecimento' => $estabelecimento]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, Estabelecimento $estabelecimento)
     {
         $updated = Estabelecimento::where('id', $id)->update($request->except(['_token', '_method']));
@@ -79,9 +61,6 @@ class EstabelecimentoController extends Controller
         return redirect()->back()->with('message', 'Error update');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(Estabelecimento $estabelecimento)
     {
         //
